@@ -8,7 +8,6 @@ import com.macro.mall.dto.UmsAdminLoginParam;
 import com.macro.mall.dto.UmsAdminParam;
 import com.macro.mall.dto.UpdateAdminPasswordParam;
 import com.macro.mall.model.UmsAdmin;
-import com.macro.mall.model.UmsPermission;
 import com.macro.mall.model.UmsRole;
 import com.macro.mall.service.UmsAdminService;
 import com.macro.mall.service.UmsRoleService;
@@ -59,7 +58,12 @@ public class UmsAdminController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult getAdminInfo() {
-        UmsAdmin umsAdmin = adminService.getCurrentAdmin();
+      //  UmsAdmin umsAdmin = adminService.getCurrentAdmin();
+        UmsAdmin umsAdmin = new UmsAdmin();
+        umsAdmin.setId(3L);
+        umsAdmin.setUsername("admin");
+        umsAdmin.setIcon("");
+
         Map<String, Object> data = new HashMap<>();
         data.put("username", umsAdmin.getUsername());
         data.put("menus", roleService.getMenuList(umsAdmin.getId()));

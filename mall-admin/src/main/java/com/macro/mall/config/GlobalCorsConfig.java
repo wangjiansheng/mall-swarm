@@ -25,12 +25,15 @@ public class GlobalCorsConfig {
             @Override
             protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
                 response.setHeader("Access-Control-Allow-Origin", "*"); //允许哪些url可以跨域请求到本域
-                response.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS"); //允许的请求方法，一般是GET,POST,PUT,DELETE,OPTIONS
-                response.setHeader("Access-Control-Allow-Headers", "x-requested-with,content-type,sign,timestamp"); //允许哪些请求头可以跨域
+                response.setHeader("Access-Control-Allow-Methods", "*"); //允许的请求方法，一般是GET,POST,PUT,DELETE,OPTIONS
+                response.setHeader("Access-Control-Allow-Headers", "*"); //允许哪些请求头可以跨域
+                response.setHeader("Access-Control-Request-Headers", "*"); //允许哪些请求头可以跨域
                 filterChain.doFilter(request, response);
             }
         };
     }
+
+
 
 
 }
